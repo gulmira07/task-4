@@ -4,12 +4,12 @@
     name:
     - "java-{{ open_jdk_version }}-openjdk"
     - maven
-  when: ansible_distribution == 'Centos'
+  when: ansible_distribution_version == 'RedHat'
 
-- name: install OpenJDK Debian
-  package:
+- name: instell OpenJDK Debian 
+  package: 
     name:
-    - openjdk-11-jdk
-    - maven
+     - openjdk-11-jdk
+     - maven
     update_cache: yes
-  when: ansible_os_family == 'Debian'
+  when: ansible_distribution_version == 'Debian'

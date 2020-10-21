@@ -1,3 +1,6 @@
-[centos77]
-#3.88.28.97   ansible_users=centos
+[redhat]
+3.88.28.97   ansible_user=centos
+
+
+[ubuntu]
 3.92.187.172  ansible_user=ubuntu

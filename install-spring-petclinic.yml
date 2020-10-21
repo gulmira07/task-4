@@ -1,5 +1,4 @@
 - hosts: all
-  become: yes
   tasks:
   - name: Install Prerequisites
     import_role:
@@ -12,17 +11,18 @@
   - name: Clone Repo
     git:
       repo: https://github.com/ikambarov/spring-petclinic.git
-      dest: /spring
+      dest: /tmp/spring
 
   - name: Run Maven Wrapper
     shell: "./mvnw package"
     args:
-      chdir: /spring
-      creates: /spring/target
+      chdir: /tmp/spring
+      creates: /tmp/spring/target
+      
 
   - name: Start App
     shell: 'pkill java & nohup java -jar target/*.jar &'
     args:
-      chdir: /spring
+      chdir: /tmp/spring
 
 
